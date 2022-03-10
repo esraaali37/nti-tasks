@@ -4,7 +4,7 @@ $users = [
         'id' => 1,
         'name' => 'ahmed',
         'gender' => (object)[
-            'gender' => 'm'
+         'gender' => 'm'
         ],
         'hobbies' => [
             'football','swimming','running'
@@ -46,55 +46,41 @@ $users = [
 
 ];
 $message ="";
+$message .= "<table>";
 foreach($users as $index => $user){
-    foreach($user as $key => $prodruct){
-        // echo "<table> <tr>  $key </tr> </table>";
-   $message .= "<table> <tr>";
-   $message .=" <th>". $key ."  </th> ";
-   $message .=" </tr>";
-  
-//    $message .="<tr> <td>" . $user-> . "</tr> </td>";
-   $message .="</table>";
-}
+    // $message .= "<tr>";
+    foreach($user as $key => $prodructs){ 
+     $message .="<th style ='padding:5px'> {$key } </th> "; 
+     foreach($prodructs as $num => $product){
+        $message .= "<tr>";
+        if(is_array($prodructs) || is_object($prodructs)) {
+        //     if($product -> gender == 'm'){
+        //     $product -> gender = 'male';}
+        //    else{
+        //      $product -> gender  = 'femele';
+        //    }
+        $message .="<td style ='padding:5px'> {$product} </td> "; 
+        
+     }
+     elseif(!((is_array($prodructs) || is_object($prodructs)) )) {
+        $message .="<td style ='padding:5px'> {$prodructs} </td> ";
+     }
+     $message .= "</tr>";
+    }
+    
+    }
+    
+     }
 
- 
-}
+     
+    
+
+
+
+
+$message .= "</table>";
 
 echo $message;
-?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <title></title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-      <!-- <table>
-          <tr>
-              <th>id</th>
-              <th>name</th>
-              <th>phone</th>
-          </tr>
-          <tr>
-              <th>1</th>
-              <th>n</th>
-              <th>p</th>
-          </tr>
-          <tr>
-              <th>2</th>
-              <th>ne</th>
-              <th>ne</th>
-          </tr>
-      </table> -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
-</html>
+
+?>
