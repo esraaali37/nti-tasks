@@ -2,6 +2,7 @@
 $title ='games';
 include_once "header.php";
 session_start();
+// print_r($_SESSION);
 $checkk =[];
 $sports =["Football 300 LE","Swimming 250 LE" ,"Volley ball 150 LE" ,"Others 100 LE"];
 $sporrt = ["Football","Swimming","Volley","Others"];
@@ -20,37 +21,38 @@ for( $count =1; $count <= $_SESSION['count-members']; $count++){
 
       for($i =0 ; $i < 4 ; $i++){
           $countFamily .= "<div class='form-check'>
-          <input class='form-check-input' type='checkbox' name='check[$count]' value='' id='defaultCheck$i'>
-          
+          <input class='form-check-input' type='checkbox' name='array[]' value='$sporrt[$i]' id='defaultCheck$i'>
           <label class='form-check-label' for='defaultCheck$i' name='$sports[$i]'>
           $sports[$i]  
           </label>
         </div> ";
-        // $checkk[] = $_POST['check'][$count];
-        foreach($checkk as $item){
-        $_SESSION['check'][$count] = $checkk;
-        }
       }
-
-     
-     
+        
+        
     
-    // $_SESSION['sport']
-    
+}
           
     if($_POST){
+      $a[] =$_POST['array'];
+      $_SESSION["array"] = $_POST["array"];
+      // if(in_array($i, $_SESSION["array"])) echo ' checked="checked" ';
+    
       for($x = 1; $x <= $_SESSION['count-members'] ; $x++){
+        // $_SESSION['sport'.$x] = $sporttttttttttf.$x;
          if(!empty($_POST['member-namea'.$x])){
           $memberNameee = $_POST['member-namea'.$x];
+
            $_SESSION['member-namea'.$x] = $memberNameee;
            
+
+          //  $_SESSION['sport'.$x] = $sporffffffffffff;
          
         header("location:result.php");
        }
      }
     }
     
-}
+
 // $countFamily .= ;
 
  
@@ -66,3 +68,33 @@ for( $count =1; $count <= $_SESSION['count-members']; $count++){
       <?php 
    include_once "footer.php" 
    ?>
+
+
+
+<!-- // $countFamily .= "<div class='form-check'>
+      //     <input class='form-check-input' type='checkbox' name='array[]' value='$sporrt[0]' id='defaultCheck'>
+      //     <label class='form-check-label' for='defaultCheck' name='$sports[0]'>
+      //     $sports[0]  
+      //     </label> <br>
+      //     <input class='form-check-input' type='checkbox' name='array[]' value='$sporrt[1]' id='defaultCheck'>
+      //     <label class='form-check-label' for='defaultCheck' name='$sports[1]'>
+      //     $sports[1]  
+      //     </label>
+      //     </br>
+      //     <input class='form-check-input' type='checkbox' name='array[]' value='$sporrt[2]' id='defaultCheck'>
+      //     <label class='form-check-label' for='defaultCheck' name='$sports[2]'>
+      //     $sports[2]  
+      //     </label> </br>
+      //     <input class='form-check-input' type='checkbox' name='array[]' value='$sporrt[3]' id='defaultCheck'>
+      //     <label class='form-check-label' for='defaultCheck' name='$sports[3]'>
+      //     $sports[3]  
+      //     </label>  </br>
+      //   </div> ";
+
+
+
+
+     
+    
+    // $_SESSION['sport'] -->
+    
