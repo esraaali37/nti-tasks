@@ -45,69 +45,45 @@ $users = [
     ],
 
 ];
-// $message ="";
-// $message .= "<table>";
-// foreach($users as $index => $user){
-//     // $message .= "<tr>";
-//     foreach($user as $key => $prodructs){ 
-//      $message .="<th style ='padding:5px'> {$key} </th> "; 
-//      $message .= $prodructs ;
-//      foreach($prodructs as $num => $product){
-//         $message .= "<tr>";
-//         if(is_array($prodructs) || is_object($prodructs)) {
-//         //     if($product -> gender == 'm'){
-//         //     $product -> gender = 'male';}
-//         //    else{
-//         //      $product -> gender  = 'femele';
-//         //    }
-//         $message .="<td style ='padding:5px'> {$product} </td> "; 
-        
-//      }
-//      else {
-//      }
-    
 
-//      $message .= "</tr>";
-//     }
-    
-//     }
-    
-//      }
-
-     
-    
-
-
-
-
-// $message .= "</table>";
-
-// echo $message;
 $table ="";
 $es = "";
 if(empty($users)){
  $table .=" ";
 }else{
-  foreach($users[0] as $index => $user){
-          $table .= "<th>" . $index ." </th>"; 
+ $table .= "<table class='table'>
+ <thead>
+   <tr> ";
+   foreach($users[0] as $property => $user){
+    $table .= "<th>" . $property ." </th>";  }
+     $table .= " </tr>   </thead>  <tbody> ";
+ foreach($users as $index => $user){
+    $table .= "<tr>" ;
 
-         foreach($user as $key => $value){  
-            if (gettype($value) == 'array' || gettype($value) == 'object'){
-                $table .= "<td>";
-                foreach($value as $k => $v){
-                    $table .= $v;
+    foreach($user as $key => $value){
+        if (gettype($value) == 'array' ||gettype($value) == 'object'){
+            $table .= "<td>";
+            foreach($value as $k =>$v){
+                if($key =='gender' && $k =='gender' && $v == 'm'){
+                    $v = 'male';
+                }elseif($key =='gender' && $k =='gender' && $v == 'f'){
+                    $v = 'female';
                 }
-                $table .= "</td>";
+                $table .= " $v ,";
             }
-            
-                else{
-                    $table .= "<td>" . $value ."</td>";
-                }
-                
+            $table .="</td>";
+        }else{
+            $table .= "<td>" . $value ." </td>";
+        }
+        
     }
+    $table .= " </tr>"; 
+ }
+ $table .= " </tbody>  </table>";
+  
+}
 
-}
-}
+
 
 
 ?>
@@ -123,19 +99,8 @@ if(empty($users)){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <table class="table">
-  <thead>
-    <tr>
-      <th class="p-1 m-3"> <?php echo $table ; ?></th> 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>  <?php echo $table ; ?></td>
-    </tr>
-   
-  </tbody>
-</table>
+    <?= $table ;?>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
