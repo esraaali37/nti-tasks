@@ -163,11 +163,11 @@ for($product = 0; $product < $bulid ;$product++){
             <div class="form-group">
               <label for="city"  class="d-block text-left font-weight-bold" style ="color:crimson">City</label>
               <select name="city" id="city" class="d-block w-100 p-2" style="cursor: pointer;" name="city" value ="">
-              <option name="selected" value="select city">select city</option>
-               <option name="city1" value="<?= $city[0] ?>"><?= $city[0] ?></option>
+  
+               <option  name="city1" value="<?= $city[0] ?>"><?= $city[0] ?></option>
                <option name="city2" value="<?= $city[1] ?>"><?= $city[1] ?></option>
                <option name="city3" value="<?= $city[2] ?>"><?= $city[2] ?></option>
-               <option name="city4" value="<?= $city[3] ?>"><?=$city[3] ?></option>
+               <option  name="city4" value="<?= $city[3] ?>"><?=$city[3] ?></option>
               </select>
             </div>
             <div class="form-group">

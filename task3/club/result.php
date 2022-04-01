@@ -18,14 +18,15 @@ $table = "<table class='table'>
 
     ";
      
-    for($count=1 ; $count <=  $_SESSION['count-members'] ; $count++){
+    for($count=1 ; $count <= $_SESSION['count-members'] ; $count++){
+    
       $table .= "<tr>";
         $countMemberNameResult =  $_SESSION['member-namea'.$count];
        $table .= "<td>" . $countMemberNameResult ."</td>" ;
             
        if(isset($_POST['array'])){
         for($j=0; $j<4; $j++){
-            $_SESSION['arrray'][j] = ;
+            // $_SESSION['arrray'][j] = ;
             // $_SESSION['cat'][$j][1] = $check_array[$j][1];
         }
     
@@ -49,9 +50,10 @@ $table = "<table class='table'>
         $table .= "</tr>";
         
       }
+    }
     
     $table .="
-  
+    
 </tbody>
 </table>";
 // print_r($_SESSION);
